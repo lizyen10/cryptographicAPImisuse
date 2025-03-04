@@ -4,6 +4,8 @@ The first rule of cryptography is, "Don't roll your own!" This means that progra
 
 ## Outline
 1. TBD - something like: Introduce cryptographic APIs and their uses – what cryptography helps secure (data) and why that is important for security. Then go into potential cryptographic API misuses and what dangers it poses. Then ...
+2. Benchmarking tool to detect interprocedural cryptographic API misuse. Build interprocedural test cases and use tools capable of interprocedural analysis. Compare them to tools only capable of intraprocedural analysis?
+3. Score and analyze the results of the benchmarking, and conclude which tools are best for interprocedural analysis, or for which test cases, or which combination of tools?
 
 ## Ideas
 ### Benchmarking tool
