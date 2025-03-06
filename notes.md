@@ -2,6 +2,14 @@
 
 The first rule of cryptography is, "Don't roll your own!" This means that programmers looking to add "security" to their application are going to leverage an existing cryptographic library (e.g., OpenSSL). Unfortunately, the most common cryptographic libraries are similar in complexity as rolling your own. Thus, a growing body of research seeks to identify misuses such cryptographic library's Application Programmer Interface (API). Note that a library's API is the set of ways that your software can interact with the library; there are secure and insecure ways to interact with a library. For this project, you will examine how a set of programs uses a cryptographic library's API. Conventionally, this analysis is intraprocedural, but your analysis will look at the opportunity and challenges of interprocedural API usage analysis. Your end goal is to identify API misuses.
 
+## To Do After Spring Break
+- first do research for papers on interprocedural cryptographic api misuse analysis - for related work and also to show if you bring something novel to the table, or if you are recreating the work of some paper. (can your paper be a reproduction?)
+1. Build a tool for interprocedural analysis - start from interprocedural.md file
+2. Paper will be something like: Interprocedural cryptographic API misuse analysis with CodeQL or something along those lines? Maybe will use more than just CodeQL
+3. Background will delve into cryptographic api misuse and its dangers, and then intraprocedural analysis and how its the common one and how its done, then what interprocedural analysis brings to the table.
+4. Have related work on interpreceural analysis of crypto api misuse, (do research on this!!) and show what your paper brings to the table
+5. introduce your tool and methodology, and then the test cases and the actual testing, and results. then analyis of results and conclusions, then future work. 
+
 ## Outline
 1. TBD - something like: Introduce cryptographic APIs and their uses – what cryptography helps secure (data) and why that is important for security. Then go into potential cryptographic API misuses and what dangers it poses. Then ...
 2. Benchmarking tool to detect interprocedural cryptographic API misuse. Build interprocedural test cases and use tools capable of interprocedural analysis. Compare them to tools only capable of intraprocedural analysis?
