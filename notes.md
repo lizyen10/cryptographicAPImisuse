@@ -81,8 +81,51 @@ To properly address **interprocedural cryptographic API misuse**, you could:
 🔹 **BUT**, you need to **evaluate their interprocedural capabilities specifically** or **extend your project to conduct interprocedural analysis directly**.  
 
 
+Paper 8
 
+In this part, we present an example of using the OpenAI API with the ChatGPT model. The provided Python code demonstrates how to interact with the API to generate a response for a given text prompt. This is a useful application for various tasks such as content generation, question-answering, and conversational AI.
+The code begins by importing the necessary libraries and setting up the API key for authentication. A function called chat_with_gpt is defined, which takes the input prompt and makes an API call to the GPT model using the specified parameters. The generated response is then processed and printed to the console.
+This example demonstrates the ease of integrating OpenAI’s ChatGPT API into your Python applications, enabling you to leverage the power of GPT models for a wide range of tasks.
 
+1 import openai
+2
+3 openai . api_key = " your_openai_api_key_here "
+4
+5 def chat_with_gpt ( prompt ):
+6 response = openai . Completion . create (
+7 engine ="text - davinci -002 ",
+8 prompt =prompt ,
+9 max_tokens =50 ,
+10 n=1,
+11 stop =None ,
+12 temperature =0.8 ,
+13 )
+14 return response . choices [0]. text . strip ()
+15
+16 prompt = " Write a brief introduction to the history of computers ."
+17 response_text = chat_with_gpt ( prompt )
+18
+19 print ( response_text )
 
+Importing required libraries: We start by importing the openai library, which is the official Python library
+for OpenAI’s API.
+- Setting the API key: We set the API key for OpenAI by assigning it to openai.api_key. Replace "your_openai_api_key_here" with your actual API key.
+- Defining the chat_with_gpt function: We define a function called chat_with_gpt that takes a single argument, prompt. This function will call the OpenAI API and return the generated response
 
+API call:
+Inside the function, we use the openai.Completion.create() method to make an API call. This method
+takes several parameters:
+- engine: The ID of the GPT model. In our example, we use the "text-davinci-002" engine.
+- prompt: The text prompt that we want the model to respond to.
+- max_tokens: The maximum number of tokens (words or word pieces) in the generated response.
+- n: The number of generated responses.
+- stop: An optional sequence that indicates the end of a response.
+- temperature: Controls the randomness of the output. A higher value makes the output more random, while a lower value makes it more deterministic.
 
+- Processing the response: After making the API call, we extract the generated text from the response.choices[0].text attribute and remove any leading or trailing whitespace using the strip() method.
+
+Using the function:
+We define a variable prompt containing the text we want the model to respond to and then call the chat_with_gpt function with this prompt. The generated response is stored in the response_text variable.
+
+Printing the response:
+Finally, we print the generated response to the console using the print() function
