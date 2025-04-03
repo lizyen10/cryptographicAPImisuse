@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 232
-# index: 232
-# FileName: Trap_Import_InterproceduralViaReturn_requests.models.PreparedRequest_rule_04_trapfile_45.py
+# level_0: 307
+# index: 307
+# FileName: Trap_Import_InterproceduralViaReturn_http.client_rule_04_trapfile_40.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,7 +16,7 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: requests.models.PreparedRequest
+# Imports: http.client
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 15
@@ -26,7 +26,7 @@
 
 #!/usr/bin/python3
 
-import requests.models.PreparedRequest
+import http.client
 
 
 def call_method(argument):

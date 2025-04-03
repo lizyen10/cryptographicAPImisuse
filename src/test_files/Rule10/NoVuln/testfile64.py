@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 166
-# index: 166
-# FileName: Trap_Import_InterproceduralViaReturn_cryptography.hazmat.primitives.asymmetric.padding_rule_10_trapfile_0.py
+# level_0: 194
+# index: 194
+# FileName: Trap_Import_Interprocedural_ucryptolib_rule_10_trapfile_4.py
 # FileDir: pattern_trap
 # Rule: 10
 # HasPattern: 1
@@ -9,14 +9,14 @@
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 1
+# DBLInterprocedural: 0
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 1
+# DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:cryptography.hazmat.primitives.asymmetric.padding
+# Imports: os:sys:smart_imports:ucryptolib
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 23
@@ -35,7 +35,7 @@ import smart_imports
 smart_imports.all()
 install("pycryptodomex")
 install("pycryptodome")
-import cryptography.hazmat.primitives.asymmetric.padding
+import ucryptolib
 
 
 def call_method(argument):

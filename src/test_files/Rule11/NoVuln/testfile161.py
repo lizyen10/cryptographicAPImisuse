@@ -1,11 +1,11 @@
 # Test Case Metadata
-# level_0: 404
-# index: 404
-# FileName: Trap_Import_Interprocedural_Cryptodome.Hash_rule_11_trapfile_1.py
-# FileDir: pattern_trap
+# level_0: 698
+# index: 698
+# FileName: Trap_Import_Interprocedural_Cryptodome.Hash_rule_11_safefile_1.py
+# FileDir: pattern_safe
 # Rule: 11
 # HasPattern: 1
-# TestType: trap
+# TestType: safe
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
@@ -16,26 +16,17 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:Cryptodome.Hash
+# Imports: pathlib
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 23
-# Total Lines: 44
-# CC Complexity: 9
+# Program Lines: 15
+# Total Lines: 35
+# CC Complexity: 5
 # MCC: 6
 
 #!/usr/bin/python3
-import os, sys
 
-install = lambda string: os.system(
-    f"{sys.executable} -m pip install --upgrade {string}")
-install("smart_imports")
-import smart_imports
-
-smart_imports.all()
-install("pycryptodomex")
-install("pycryptodome")
-import Cryptodome.Hash
+import pathlib
 
 
 def call_method(argument):

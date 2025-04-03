@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 370
-# index: 370
-# FileName: Trap_Import_InterproceduralViaReturn_socket.socket_rule_04_trapfile_37.py
+# level_0: 96
+# index: 96
+# FileName: Trap_Import_InterproceduralViaReturn_urllib.request.URLopener_rule_04_trapfile_14.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,17 +16,19 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: socket.socket
+# Imports: urllib.request.URLopener:urllib.request
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 15
-# Total Lines: 35
-# CC Complexity: 5
+# Program Lines: 16
+# Total Lines: 37
+# CC Complexity: 6
 # MCC: 6
 
 #!/usr/bin/python3
 
-import socket.socket
+import urllib.request.URLopener
+
+from urllib.request import URLopener
 
 
 def call_method(argument):

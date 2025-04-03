@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 298
-# index: 298
-# FileName: Trap_Import_InterproceduralViaReturn_socket_rule_04_trapfile_38.py
+# level_0: 428
+# index: 428
+# FileName: Trap_Import_InterproceduralViaReturn_aiohttp.web_request.BaseRequest_rule_04_trapfile_28.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,17 +16,25 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: socket
+# Imports: os:sys:smart_imports:aiohttp.web_request.BaseRequest
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 15
-# Total Lines: 35
-# CC Complexity: 5
+# Program Lines: 22
+# Total Lines: 43
+# CC Complexity: 9
 # MCC: 6
 
 #!/usr/bin/python3
+import os, sys
 
-import socket
+install = lambda string: os.system(
+    f"{sys.executable} -m pip install --upgrade {string}")
+install("smart_imports")
+import smart_imports
+
+smart_imports.all()
+install("aiohttp")
+import aiohttp.web_request.BaseRequest
 
 
 def call_method(argument):

@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 171
-# index: 171
-# FileName: Trap_Import_Interprocedural_cryptography.hazmat.primitives.ciphers.algorithms_rule_09_trapfile_4.py
+# level_0: 195
+# index: 195
+# FileName: Trap_Import_InterproceduralViaReturn_cryptography.hazmat.primitives.ciphers.algorithms_rule_09_trapfile_3.py
 # FileDir: pattern_trap
 # Rule: 9
 # HasPattern: 1
@@ -9,12 +9,12 @@
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 0
+# DBLInterprocedural: 1
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 0
+# DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
 # Imports: os:sys:smart_imports:cryptography.hazmat.primitives.ciphers.algorithms
 # HasVuln: 0

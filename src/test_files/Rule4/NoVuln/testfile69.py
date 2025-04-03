@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 377
-# index: 377
-# FileName: Trap_Import_Interprocedural_paramiko.client_rule_04_trapfile_46.py
+# level_0: 208
+# index: 208
+# FileName: Trap_Import_Interprocedural_furl.furl_rule_04_trapfile_31.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,7 +16,7 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:paramiko.client
+# Imports: os:sys:smart_imports:furl.furl
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 22
@@ -33,8 +33,8 @@ install("smart_imports")
 import smart_imports
 
 smart_imports.all()
-install("paramiko")
-import paramiko.client
+install("furl")
+import furl.furl
 
 
 def call_method(argument):

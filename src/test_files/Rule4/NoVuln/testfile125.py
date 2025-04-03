@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 312
-# index: 312
-# FileName: Trap_Import_Interprocedural_werkzeug_rule_04_trapfile_42.py
+# level_0: 477
+# index: 477
+# FileName: Trap_Import_Interprocedural_httplib_rule_04_trapfile_0.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,26 +16,44 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: werkzeug
+# Imports: httplib:http.client
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 15
-# Total Lines: 35
+# Total Lines: 39
 # CC Complexity: 5
-# MCC: 6
+# MCC: -1
 
 #!/usr/bin/python3
 
-import werkzeug
+
+import httplib
+http.client as httplib
+
 
 
 def call_method(argument):
-    print('Hello World')
-
+	print('Hello World')
 
 def starting_method():
-    call_method("Argument")
-
+	call_method("Argument")
 
 starting_method()
+
+
+
+def imports(exclude:list=[]):
+	'''
+	Using the following excerpt from the Stackoverflow link below
+	https://stackoverflow.com/questions/4858100/how-to-list-imported-modules
+	Archive: https://archive.ph/uZEia
+	'''
+	exclude += ['builtins']
+	for name, val in globals().items():
+		if isinstance(val, types.ModuleType) and str(val.__name__) not in exclude:
+			yield val.__name__
+
+print("Hello World")
+print("Global Imports: " + str(list(imports())))
+print("Unused Imports: " + str(list(imports(['types']))))
 

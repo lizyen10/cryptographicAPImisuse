@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 112
-# index: 112
-# FileName: Trap_Import_InterproceduralViaReturn_Cryptodome.Cipher_rule_09_trapfile_15.py
+# level_0: 120
+# index: 120
+# FileName: Trap_Import_Interprocedural_pyDes_rule_09_trapfile_6.py
 # FileDir: pattern_trap
 # Rule: 9
 # HasPattern: 1
@@ -9,18 +9,18 @@
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 1
+# DBLInterprocedural: 0
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 1
+# DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:Cryptodome.Cipher
+# Imports: os:sys:smart_imports:pyDes
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 23
-# Total Lines: 44
+# Program Lines: 22
+# Total Lines: 43
 # CC Complexity: 9
 # MCC: 6
 
@@ -33,9 +33,8 @@ install("smart_imports")
 import smart_imports
 
 smart_imports.all()
-install("pycryptodomex")
-install("pycryptodome")
-import Cryptodome.Cipher
+install("pydes")
+import pyDes
 
 
 def call_method(argument):

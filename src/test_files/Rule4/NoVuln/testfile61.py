@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 370
-# index: 370
-# FileName: Trap_Import_InterproceduralViaReturn_socket.socket_rule_04_trapfile_37.py
+# level_0: 187
+# index: 187
+# FileName: Trap_Import_InterproceduralViaReturn_PIL.Image.Image_rule_04_trapfile_33.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,7 +16,7 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: socket.socket
+# Imports: PIL.Image.Image
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 15
@@ -26,7 +26,7 @@
 
 #!/usr/bin/python3
 
-import socket.socket
+import PIL.Image.Image
 
 
 def call_method(argument):

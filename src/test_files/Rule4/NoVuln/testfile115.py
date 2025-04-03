@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 291
-# index: 291
-# FileName: Trap_Import_InterproceduralViaReturn_tornado.web.RequestHandler_rule_04_trapfile_29.py
+# level_0: 418
+# index: 418
+# FileName: Trap_Import_Interprocedural_PIL.Image_rule_04_trapfile_32.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -9,32 +9,24 @@
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 1
+# DBLInterprocedural: 0
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 1
+# DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:tornado.web.RequestHandler
+# Imports: PIL.Image
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 22
-# Total Lines: 43
-# CC Complexity: 9
+# Program Lines: 15
+# Total Lines: 35
+# CC Complexity: 5
 # MCC: 6
 
 #!/usr/bin/python3
-import os, sys
 
-install = lambda string: os.system(
-    f"{sys.executable} -m pip install --upgrade {string}")
-install("smart_imports")
-import smart_imports
-
-smart_imports.all()
-install("tornado")
-import tornado.web.RequestHandler
+import PIL.Image
 
 
 def call_method(argument):

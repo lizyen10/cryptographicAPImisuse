@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 353
-# index: 353
-# FileName: Trap_Import_Interprocedural_urllib_rule_04_trapfile_9.py
+# level_0: 576
+# index: 576
+# FileName: Trap_Import_InterproceduralViaReturn_paramiko.client_rule_04_trapfile_46.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -9,24 +9,32 @@
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 0
+# DBLInterprocedural: 1
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 0
+# DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: urllib
+# Imports: os:sys:smart_imports:paramiko.client
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 15
-# Total Lines: 35
-# CC Complexity: 5
+# Program Lines: 22
+# Total Lines: 43
+# CC Complexity: 9
 # MCC: 6
 
 #!/usr/bin/python3
+import os, sys
 
-import urllib
+install = lambda string: os.system(
+    f"{sys.executable} -m pip install --upgrade {string}")
+install("smart_imports")
+import smart_imports
+
+smart_imports.all()
+install("paramiko")
+import paramiko.client
 
 
 def call_method(argument):

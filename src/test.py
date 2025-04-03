@@ -1,11 +1,12 @@
 import sqlite3
 import mystring
 import os
+import hashlib
 
 # Base output directory
 base_output_dir = "./test_files"
 
-# Create Rule1 to Rule18 subdirectories with HasVuln and NoVuln
+# Create Rule0 to Rule18 subdirectories with HasVuln and NoVuln
 for rule_number in range(0, 19):
     for vuln_label in ["HasVuln", "NoVuln"]:
         dir_path = os.path.join(base_output_dir, f"Rule{rule_number}", vuln_label)
@@ -27,6 +28,9 @@ print("Columns:", columns)
 
 file_count = 0
 
+# 🔹 Track seen content hashes and counts for each Rule's NoVuln folder
+no_vuln_hashes_by_rule = {rule: {} for rule in range(0, 19)}
+
 # Iterate through each row
 for row in rows:
     testfile = dict(zip(columns, row))
@@ -43,6 +47,16 @@ for row in rows:
         vuln_folder = "HasVuln" if has_vuln == 1 else "NoVuln"
         rule_dir = os.path.join(base_output_dir, f"Rule{rule_number}", vuln_folder)
         os.makedirs(rule_dir, exist_ok=True)
+
+        # 🔹 Handle duplicates in NoVuln: allow up to 2 of each unique hash
+        if has_vuln == 0:
+            content_hash = hashlib.sha256(testcontent.encode('utf-8')).hexdigest()
+            hash_count = no_vuln_hashes_by_rule[rule_number].get(content_hash, 0)
+
+            if hash_count >= 2:
+                print(f"Skipping extra duplicate in Rule{rule_number}/NoVuln (seen {hash_count} times)")
+                continue
+            no_vuln_hashes_by_rule[rule_number][content_hash] = hash_count + 1
 
         filename = f"testfile{file_count + 1}.py"
         file_path = os.path.join(rule_dir, filename)

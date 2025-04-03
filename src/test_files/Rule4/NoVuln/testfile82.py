@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 208
-# index: 208
-# FileName: Trap_Import_Interprocedural_furl.furl_rule_04_trapfile_31.py
+# level_0: 257
+# index: 257
+# FileName: Trap_Import_Interprocedural_smtplib_rule_04_trapfile_41.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,25 +16,17 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:furl.furl
+# Imports: smtplib
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 22
-# Total Lines: 43
-# CC Complexity: 9
+# Program Lines: 15
+# Total Lines: 35
+# CC Complexity: 5
 # MCC: 6
 
 #!/usr/bin/python3
-import os, sys
 
-install = lambda string: os.system(
-    f"{sys.executable} -m pip install --upgrade {string}")
-install("smart_imports")
-import smart_imports
-
-smart_imports.all()
-install("furl")
-import furl.furl
+import smtplib
 
 
 def call_method(argument):

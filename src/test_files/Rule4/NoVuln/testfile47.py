@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 370
-# index: 370
-# FileName: Trap_Import_InterproceduralViaReturn_socket.socket_rule_04_trapfile_37.py
+# level_0: 134
+# index: 134
+# FileName: Trap_Import_Interprocedural_urllib_rule_04_trapfile_10.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -9,14 +9,14 @@
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 1
+# DBLInterprocedural: 0
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 1
+# DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: socket.socket
+# Imports: urllib
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 15
@@ -26,7 +26,7 @@
 
 #!/usr/bin/python3
 
-import socket.socket
+import urllib
 
 
 def call_method(argument):

@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 370
-# index: 370
-# FileName: Trap_Import_InterproceduralViaReturn_socket.socket_rule_04_trapfile_37.py
+# level_0: 291
+# index: 291
+# FileName: Trap_Import_InterproceduralViaReturn_tornado.web.RequestHandler_rule_04_trapfile_29.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,17 +16,25 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: socket.socket
+# Imports: os:sys:smart_imports:tornado.web.RequestHandler
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 15
-# Total Lines: 35
-# CC Complexity: 5
+# Program Lines: 22
+# Total Lines: 43
+# CC Complexity: 9
 # MCC: 6
 
 #!/usr/bin/python3
+import os, sys
 
-import socket.socket
+install = lambda string: os.system(
+    f"{sys.executable} -m pip install --upgrade {string}")
+install("smart_imports")
+import smart_imports
+
+smart_imports.all()
+install("tornado")
+import tornado.web.RequestHandler
 
 
 def call_method(argument):

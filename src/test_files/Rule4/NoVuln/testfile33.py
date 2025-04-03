@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 84
-# index: 84
-# FileName: Trap_Import_Interprocedural_http.client_rule_04_trapfile_40.py
+# level_0: 99
+# index: 99
+# FileName: Trap_Import_InterproceduralViaReturn_urllib.request_rule_04_trapfile_19.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -9,14 +9,14 @@
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 0
+# DBLInterprocedural: 1
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 0
+# DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: http.client
+# Imports: urllib.request
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 15
@@ -26,7 +26,7 @@
 
 #!/usr/bin/python3
 
-import http.client
+import urllib.request
 
 
 def call_method(argument):

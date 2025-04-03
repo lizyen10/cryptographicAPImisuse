@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 306
-# index: 306
-# FileName: Trap_Import_Interprocedural_http_rule_04_trapfile_2.py
+# level_0: 474
+# index: 474
+# FileName: Trap_Import_Interprocedural_requests_rule_04_trapfile_22.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,7 +16,7 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: http
+# Imports: requests
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 15
@@ -26,7 +26,7 @@
 
 #!/usr/bin/python3
 
-import http
+import requests
 
 
 def call_method(argument):

@@ -1,26 +1,26 @@
 # Test Case Metadata
-# level_0: 377
-# index: 377
-# FileName: Trap_Import_Interprocedural_paramiko.client_rule_04_trapfile_46.py
+# level_0: 166
+# index: 166
+# FileName: Trap_Import_InterproceduralViaReturn_cryptography.hazmat.primitives.asymmetric.padding_rule_10_trapfile_0.py
 # FileDir: pattern_trap
-# Rule: 4
+# Rule: 10
 # HasPattern: 1
 # TestType: trap
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 0
+# DBLInterprocedural: 1
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 0
+# DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:paramiko.client
+# Imports: os:sys:smart_imports:cryptography.hazmat.primitives.asymmetric.padding
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 22
-# Total Lines: 43
+# Program Lines: 23
+# Total Lines: 44
 # CC Complexity: 9
 # MCC: 6
 
@@ -33,8 +33,9 @@ install("smart_imports")
 import smart_imports
 
 smart_imports.all()
-install("paramiko")
-import paramiko.client
+install("pycryptodomex")
+install("pycryptodome")
+import cryptography.hazmat.primitives.asymmetric.padding
 
 
 def call_method(argument):

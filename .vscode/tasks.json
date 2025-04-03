@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run Semgrep and Save Output",
+        "type": "shell",
+        "command": "semgrep --config auto ./test_files --json > semgrep_results.json",
+        "problemMatcher": []
+      }
+    ]
+  }
+  

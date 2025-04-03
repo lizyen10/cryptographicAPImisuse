@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 241
-# index: 241
-# FileName: Trap_Import_InterproceduralViaReturn_Cryptodome.Hash_rule_11_trapfile_1.py
+# level_0: 328
+# index: 328
+# FileName: Trap_Import_InterproceduralViaReturn_Crypto_rule_11_trapfile_10.py
 # FileDir: pattern_trap
 # Rule: 11
 # HasPattern: 1
@@ -16,7 +16,7 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:Cryptodome.Hash
+# Imports: os:sys:smart_imports:Crypto
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 23
@@ -35,7 +35,7 @@ import smart_imports
 smart_imports.all()
 install("pycryptodomex")
 install("pycryptodome")
-import Cryptodome.Hash
+import Crypto
 
 
 def call_method(argument):

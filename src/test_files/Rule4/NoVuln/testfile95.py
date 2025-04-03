@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 236
-# index: 236
-# FileName: Trap_Import_InterproceduralViaReturn_urllib_rule_04_trapfile_11.py
+# level_0: 312
+# index: 312
+# FileName: Trap_Import_Interprocedural_werkzeug_rule_04_trapfile_42.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -9,14 +9,14 @@
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 1
+# DBLInterprocedural: 0
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 1
+# DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: urllib
+# Imports: werkzeug
 # HasVuln: 0
 # File Qual Name: temp
 # Program Lines: 15
@@ -26,7 +26,7 @@
 
 #!/usr/bin/python3
 
-import urllib
+import werkzeug
 
 
 def call_method(argument):

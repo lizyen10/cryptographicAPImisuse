@@ -1,7 +1,7 @@
 # Test Case Metadata
-# level_0: 134
-# index: 134
-# FileName: Trap_Import_Interprocedural_urllib_rule_04_trapfile_10.py
+# level_0: 158
+# index: 158
+# FileName: Trap_Import_Interprocedural_pycurl_rule_04_trapfile_1.py
 # FileDir: pattern_trap
 # Rule: 4
 # HasPattern: 1
@@ -16,17 +16,25 @@
 # InterProcedural_INT: 1
 # DBLInterprocedural_INT: 0
 # PathSensitive_INT: 0
-# Imports: urllib
+# Imports: os:sys:smart_imports:pycurl
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 15
-# Total Lines: 35
-# CC Complexity: 5
+# Program Lines: 22
+# Total Lines: 43
+# CC Complexity: 9
 # MCC: 6
 
 #!/usr/bin/python3
+import os, sys
 
-import urllib
+install = lambda string: os.system(
+    f"{sys.executable} -m pip install --upgrade {string}")
+install("smart_imports")
+import smart_imports
+
+smart_imports.all()
+install("pycurl")
+import pycurl
 
 
 def call_method(argument):

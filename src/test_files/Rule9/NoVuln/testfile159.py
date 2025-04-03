@@ -1,41 +1,32 @@
 # Test Case Metadata
-# level_0: 402
-# index: 402
-# FileName: Trap_Import_Interprocedural_Crypto.Cipher_rule_09_trapfile_8.py
-# FileDir: pattern_trap
+# level_0: 686
+# index: 686
+# FileName: Trap_Import_InterproceduralViaReturn_cryptography.hazmat.primitives.ciphers.algorithms_rule_09_safefile_0.py
+# FileDir: pattern_safe
 # Rule: 9
 # HasPattern: 1
-# TestType: trap
+# TestType: safe
 # FieldSensitive: 0
 # Global: 0
 # InterProcedural: 1
-# DBLInterprocedural: 0
+# DBLInterprocedural: 1
 # PathSensitive: 0
 # FieldSensitive_INT: 0
 # Global_INT: 0
 # InterProcedural_INT: 1
-# DBLInterprocedural_INT: 0
+# DBLInterprocedural_INT: 1
 # PathSensitive_INT: 0
-# Imports: os:sys:smart_imports:Crypto.Cipher
+# Imports: pathlib
 # HasVuln: 0
 # File Qual Name: temp
-# Program Lines: 23
-# Total Lines: 44
-# CC Complexity: 9
+# Program Lines: 15
+# Total Lines: 35
+# CC Complexity: 5
 # MCC: 6
 
 #!/usr/bin/python3
-import os, sys
 
-install = lambda string: os.system(
-    f"{sys.executable} -m pip install --upgrade {string}")
-install("smart_imports")
-import smart_imports
-
-smart_imports.all()
-install("pycryptodomex")
-install("pycryptodome")
-import Crypto.Cipher
+import pathlib
 
 
 def call_method(argument):
