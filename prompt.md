@@ -74,3 +74,62 @@ To measure the impact of these prompts on accuracy:
 3. **Compare accuracy & completeness** of the results.
 4. **Analyze false positives and false negatives**.
 5. **Test across different complexity levels** (single function vs. interprocedural).
+
+Please analyze this code snippet for cryptographic API misuse. Begin your response with either YES, meaning there is cryptographic API misuse, or NO, meaning no cryptographic API misuse was detected, and explain your reasoning in one sentence
+
+
+You are a cybersecurity specialist. You will be provided with a code snippet in python and your task is to analyze the code for cryptographic API misuses. Cryptographic API misuse is when developers utilize cryptographic libraries inappropriately due to not understanding proper usage or security rules, resulting in code vulnerable to attacks such as SSL/TLS man in the middle, predictability, ciphertext attack, brute force, and deserialization. When analyzing, please look for instances of these cryptographic API misuses, along with any other misuses you also detect: Using a Wildcard to Avoid Verification, Creating a Custom String to Avoid Verification of Certificates, Using an Unverified Context to Avoid HTTPS Verification, Using HTTP Instead of HTTPS, Using Insecure Random Number Generation, Using a Static and Insecure Salt, Using an Insecure Mode, Using Less Than 1,000 Iterations, Using an, Insecure Block Cipher, Using an Insecure Asymmetric Cipher, Using an Insecure Hash, Not Verifying the Json Web Token (JWT), Using a Deprecated or Invalid Transport Layer Security (TLS) Version, Using an Insecure Protocol, Using an Insecure Extensible Markup Language (XML) Deserialization, Using an Insecure YAML Ain’t Markup Language (YAML) Deserialization, Using an Insecure Pickle Deserialization, Not Properly Escaping Regular Expressions (regex).Begin your response with either YES, meaning there is cryptographic API misuse, or NO, meaning no cryptographic API misuse was detected, and explain your reasoning in one sentence.
+
+Identify any cryptographic API misuse in this code: 
+
+- do a third round of prompts, giving each type of crypto misuse from the benchmark?
+- or just do that in second one - part of definition.
+- define the type of crypto api misuse that you are looking for to the API. benchmark's definition may differ from what LLM thinks.
+    - i did use paper 1's def of cryto api misuse, but adding in each type may help? 
+    - if you give each type of misuse that each benchmark test is catered to, is that too obvious?
+    - maybe give the attack surface it is representing? - paper 1 table 1
+
+When analyzing, please look for instances of these cryptographic API misuses, along with any other misuses you also detect: Using a Wildcard to Avoid Verification, Creating a Custom String to Avoid Verification of Certificates, Using an Unverified Context to Avoid HTTPS Verification, Using HTTP Instead of HTTPS, Using Insecure Random Number Generation, Using a Static and Insecure Salt, Using an Insecure Mode, Using Less Than 1,000 Iterations, Using an, Insecure Block Cipher, Using an Insecure Asymmetric Cipher, Using an Insecure Hash, Not Verifying the Json Web Token (JWT), Using a Deprecated or Invalid Transport Layer Security (TLS) Version, Using an Insecure Protocol, Using an Insecure Extensible Markup Language (XML) Deserialization, Using an Insecure YAML Ain’t Markup Language (YAML) Deserialization, Using an Insecure Pickle Deserialization, Not Properly Escaping Regular Expressions (regex).
+
+We identified and created misuse patterns that encompass 18
+different potential cryptographic API misuses. Each potential
+cryptographic API misuse type requires specific slicing and
+variable verification. We extrapolate these tasks to potentially
+misused modules. These misuse patterns are shown in Table I.
+We chose these misuse patterns since they represent different
+types of attack and attack surfaces. Identifying potential standard
+library misuses or taint analysis using methods such as
+“os.system” or “eval” is not cryptographic misuse and therefore
+is beyond the scope of this work. Researchers and developers
+can extend the current misuse patterns by including cryptographic
+patterns in their specifications
+
+
+    
+
+we are testing interprocedrual, but just define crypto misuse to the AI. we want to test how well it is at detecting interprocedural crypto api misuse compared to the static tool, static tool just has rules on crypto api misuse, thus llm will get definition of crypto api misuse?
+    - we do interprocedrual- Involve vulnerabilities spanning multiple methods, challenging the tool to trace complex method invocations. - we challenge the static tool and llm to see if it is accurate at detcting vulnerabilities between functions
+- define interprocedrual? or just see how well ai is at detecting crypto api misuse in interprocedrual files?
+
+-	This refines the prompt adding the intent in the user prompt as well. This helps make it more clear and specific. 
+-	Adds some domain specificity with the definition of crypto api misuse.
+-	Defines a role for the LLM
+-	Usage of system and user, not just user
+-	Uses reflection pattern, asking the LLM to give rationale
+
+- uses user roles to influence how the model interprets the input - developer and user
+- clear instructions
+- one sentnece for consciseness, and cost and latency
+- code snippets is text to reference?
+
+Price of gpt 4o mini - gpt-4o-mini-2024-07-18
+Input:
+$0.150 / 1M tokens
+Cached input:
+$0.075 / 1M tokens
+Output:
+$0.600 / 1M tokens
+
+run the script 3 times per prompt? and average the results, but analyze the results separately
+
+testing all 3 prompts each 3 times (plus a few test runs earlier) came to 15 cents

@@ -1,0 +1,216 @@
+True Positive - Rule1/HasVuln/testfile210.py:
+YES, there is cryptographic API misuse because the code disables SSL certificate verification by setting `verify=False`, which makes the application vulnerable to man-in-the-middle attacks.
+
+True Positive - Rule1/HasVuln/testfile225.py:
+YES, there is cryptographic API misuse because the code disables SSL certificate verification (`verify=False`) when making an HTTPS request, which exposes the application to man-in-the-middle attacks.
+
+True Positive - Rule1/HasVuln/testfile233.py:
+YES, there is cryptographic API misuse because the `verify` parameter in the `requests.request` function is set to `False`, which disables SSL certificate verification and makes the code vulnerable to man-in-the-middle attacks.
+
+True Positive - Rule1/HasVuln/testfile243.py:
+YES, there is cryptographic API misuse because the code disables SSL certificate verification by setting `verify=False`, which exposes the application to man-in-the-middle attacks.
+
+True Positive - Rule2/HasVuln/testfile208.py:
+YES, there is cryptographic API misuse because the code disables SSL certificate verification by setting `CURL_CA_BUNDLE` to an empty string, which exposes the application to potential man-in-the-middle attacks.
+
+True Positive - Rule2/HasVuln/testfile223.py:
+YES, there is cryptographic API misuse because the code sets the `CURL_CA_BUNDLE` environment variable to an empty string, which can lead to insecure SSL/TLS connections by not properly validating the server's certificate, making it susceptible to man-in-the-middle attacks.
+
+True Positive - Rule2/HasVuln/testfile236.py:
+YES, there is cryptographic API misuse because setting `os.environ['CURL_CA_BUNDLE']` to an empty string disables certificate verification for HTTPS requests, exposing the application to man-in-the-middle attacks.
+
+True Positive - Rule2/HasVuln/testfile238.py:
+YES, there is cryptographic API misuse because the code disables certificate validation by setting `CURL_CA_BUNDLE` to an empty string, which exposes the application to man-in-the-middle attacks by not verifying the SSL/TLS certificates of the HTTPS requests.
+
+True Positive - Rule3/HasVuln/testfile190.py:
+YES, there is cryptographic API misuse because the code uses `ssl._create_unverified_context`, which creates an SSL context that does not verify the server's certificate, making it vulnerable to man-in-the-middle attacks.
+
+True Positive - Rule3/HasVuln/testfile197.py:
+YES, there is cryptographic API misuse because the code uses `ssl._create_unverified_context()`, which creates an SSL context that does not verify the server's certificate, making it vulnerable to man-in-the-middle attacks.
+
+True Positive - Rule3/HasVuln/testfile247.py:
+YES, there is cryptographic API misuse because the code uses `ssl._create_unverified_context()`, which disables certificate verification, making it vulnerable to man-in-the-middle attacks by allowing any SSL certificate, including self-signed or malicious ones.
+
+True Positive - Rule3/HasVuln/testfile262.py:
+YES, there is cryptographic API misuse because the code uses `ssl._create_unverified_context()` which disables SSL certificate verification, making the application vulnerable to man-in-the-middle attacks.
+
+True Positive - Rule4/HasVuln/testfile230.py:
+YES, there is cryptographic API misuse because the code makes an HTTP request without using HTTPS, which exposes it to potential man-in-the-middle attacks, allowing an attacker to intercept the data being transmitted.
+
+False Negative - Rule4/HasVuln/testfile240.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not involve any cryptographic operations or libraries; it simply makes an HTTP request to a URL without any encryption or sensitive data handling.
+
+True Positive - Rule4/HasVuln/testfile251.py:
+YES, there is cryptographic API misuse because the code uses HTTP instead of HTTPS, which exposes the data to potential man-in-the-middle attacks, compromising the security of the communication.
+
+True Positive - Rule4/HasVuln/testfile257.py:
+YES, there is cryptographic API misuse because the code is using `http` instead of `https`, which exposes the connection to potential man-in-the-middle attacks, compromising the security of data in transit.
+
+False Negative - Rule5/HasVuln/testfile232.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not utilize any cryptographic libraries or functions; it only uses the `random` module for generating random integers, which does not involve cryptographic operations.
+
+False Negative - Rule5/HasVuln/testfile242.py:
+NO, there is no cryptographic API misuse detected in the provided code snippet as it does not involve any cryptographic operations or libraries.
+
+True Positive - Rule5/HasVuln/testfile248.py:
+YES, there is cryptographic API misuse, as the use of `random.randint` for generating random numbers is insecure for cryptographic purposes, making it predictable and vulnerable to attacks.
+
+False Negative - Rule5/HasVuln/testfile254.py:
+NO, there is no cryptographic API misuse detected in this code snippet, as it does not utilize any cryptographic libraries or functions; it simply demonstrates the use of the random library to generate a random integer.
+
+True Positive - Rule6/HasVuln/testfile196.py:
+YES, there is cryptographic API misuse because the code uses a hardcoded salt (`b'D8VxSmTZt2E2YV454mkqAY5e'`) which is insecure and can lead to vulnerabilities such as rainbow table attacks, as well as potentially exposing the password hashing process to predictability.
+
+False Negative - Rule6/HasVuln/testfile203.py:
+NO, there is no cryptographic API misuse detected as the code correctly uses the `pbkdf2_hmac` function for hashing a password with a sufficient iteration count, although the hardcoded password should ideally be managed securely.
+
+True Positive - Rule6/HasVuln/testfile216.py:
+YES, there is cryptographic API misuse because the salt used in the `pbkdf2_hmac` function is not randomly generated and is instead a fixed value, which can lead to vulnerabilities such as rainbow table attacks.
+
+True Positive - Rule6/HasVuln/testfile220.py:
+YES, there is cryptographic API misuse because the code uses a static salt (`b'D8VxSmTZt2E2YV454mkqAY5e'`) which should be unique and randomly generated for each password, making it vulnerable to precomputation attacks such as rainbow tables.
+
+True Positive - Rule7/HasVuln/testfile189.py:
+YES, there is cryptographic API misuse because the code uses AES in ECB mode, which is insecure due to its vulnerability to pattern attacks and does not provide proper confidentiality for data encryption.
+
+True Positive - Rule7/HasVuln/testfile206.py:
+YES, there is cryptographic API misuse because the code uses AES in ECB mode, which is insecure due to its vulnerability to patterns in plaintext leading to predictable ciphertext, making it unsuitable for encrypting sensitive data.
+
+True Positive - Rule7/HasVuln/testfile212.py:
+YES, there is cryptographic API misuse because the code uses AES in ECB mode, which is insecure due to its vulnerability to pattern attacks and does not provide proper confidentiality for the data being encrypted.
+
+True Positive - Rule7/HasVuln/testfile227.py:
+YES, there is cryptographic API misuse because the code uses AES encryption in ECB mode, which is insecure due to its vulnerability to pattern attacks and does not provide semantic security.
+
+True Positive - Rule8/HasVuln/testfile194.py:
+YES, there is cryptographic API misuse because the code uses `os.urandom(45)` to generate a random salt for the password hashing, but it does not store or return the salt, making it impossible to verify the password later, which is a critical aspect of securely handling password hashes.
+
+True Positive - Rule8/HasVuln/testfile201.py:
+YES, there is cryptographic API misuse because the code generates a random salt using `os.urandom(45)` but does not store or manage the salt, which is essential for the proper use of PBKDF2; without it, the derived key cannot be recreated for verification, leading to potential security issues.
+
+True Positive - Rule8/HasVuln/testfile217.py:
+YES, there is cryptographic API misuse because the code uses `os.urandom(45)` to generate a salt for the PBKDF2 function, which is not a recommended length for a salt; a minimum of 16 bytes (128 bits) is generally advised for security, and the salt should be securely stored and managed for proper password hashing.
+
+True Positive - Rule8/HasVuln/testfile221.py:
+YES, there is cryptographic API misuse because the code uses `os.urandom(45)` to generate a salt for the PBKDF2 hashing function, but it does not store or use the salt properly, which is critical for securely hashing passwords and preventing attacks such as rainbow table attacks.
+
+True Positive - Rule9/HasVuln/testfile187.py:
+YES, there is cryptographic API misuse because the encryption and decryption process is flawed: the initialization vector (IV) is being reused for each encryption without proper management, and the decryption is attempted on the ciphertext that includes the IV, leading to potential vulnerabilities and incorrect decryption.
+
+True Positive - Rule9/HasVuln/testfile204.py:
+YES, there is cryptographic API misuse because the code uses a fixed key and does not securely manage the initialization vector (IV), which could lead to vulnerabilities such as IV reuse and predictable ciphertext, ultimately compromising the confidentiality of the encrypted data.
+
+True Positive - Rule9/HasVuln/testfile211.py:
+YES, there is cryptographic API misuse because the initialization vector (IV) is being reused and concatenated with the ciphertext, which can lead to vulnerabilities in the encryption scheme, particularly in CFB mode, making it easier for attackers to perform certain types of attacks.
+
+True Positive - Rule9/HasVuln/testfile226.py:
+YES, there is cryptographic API misuse because the initialization vector (IV) is generated randomly but not securely stored or transmitted, making it vulnerable to attacks since it is not available for decryption, and the hardcoded key lacks proper key management practices.
+
+True Positive - Rule10/HasVuln/testfile213.py:
+YES, there is cryptographic API misuse because the code generates a 512-bit RSA key, which is considered insecure and susceptible to brute force attacks, as modern standards recommend a minimum key size of 2048 bits for RSA keys.
+
+True Positive - Rule10/HasVuln/testfile214.py:
+YES, there is cryptographic API misuse because the code generates an RSA private key with a key size of only 512 bits, which is considered insecure and vulnerable to modern cryptographic attacks.
+
+True Positive - Rule10/HasVuln/testfile218.py:
+YES, there is cryptographic API misuse because the RSA key size of 512 bits is considered insecure and vulnerable to attacks, as modern standards recommend a minimum key size of 2048 bits for RSA keys to ensure adequate security.
+
+True Positive - Rule10/HasVuln/testfile228.py:
+YES, there is cryptographic API misuse because the code generates a private RSA key with a key size of only 512 bits, which is considered insecure and vulnerable to brute force attacks.
+
+True Positive - Rule11/HasVuln/testfile188.py:
+YES, there is cryptographic API misuse because the code uses the MD5 hashing algorithm, which is considered insecure and vulnerable to collision attacks, making it inappropriate for cryptographic purposes.
+
+True Positive - Rule11/HasVuln/testfile195.py:
+YES, there is cryptographic API misuse because the code uses the MD5 hashing algorithm, which is considered insecure and vulnerable to collision attacks, making it unsuitable for cryptographic purposes.
+
+True Positive - Rule11/HasVuln/testfile202.py:
+YES, there is cryptographic API misuse because the code uses the MD5 hashing algorithm, which is considered insecure due to vulnerabilities that allow for collision attacks, making it unsuitable for cryptographic purposes.
+
+True Positive - Rule11/HasVuln/testfile205.py:
+YES, there is cryptographic API misuse because the MD5 hashing algorithm is considered weak and vulnerable to collision attacks, making it inappropriate for security-sensitive applications.
+
+True Positive - Rule12/HasVuln/testfile249.py:
+YES, there is cryptographic API misuse because the code disables signature verification when decoding a JWT (JSON Web Token), which makes it vulnerable to attacks since it allows any token to be accepted without validation.
+
+True Positive - Rule12/HasVuln/testfile250.py:
+YES, there is cryptographic API misuse because the code disables signature verification when decoding a JWT token, which exposes the application to potential attacks, such as accepting tampered or forged tokens without validation.
+
+True Positive - Rule12/HasVuln/testfile255.py:
+YES, there is cryptographic API misuse because the code uses `jwt.decode` with `verify_signature` set to `False`, which disables signature verification and exposes the application to potential attacks, such as accepting forged tokens.
+
+True Positive - Rule12/HasVuln/testfile256.py:
+YES, there is cryptographic API misuse because the code disables signature verification in the JWT decode function, which exposes it to potential attacks by allowing the acceptance of unverified and potentially tampered tokens.
+
+True Positive - Rule13/HasVuln/testfile229.py:
+YES, there is cryptographic API misuse, as the code uses `ssl.wrap_socket` with the deprecated `ssl.PROTOCOL_SSLv2`, which is known to have serious security vulnerabilities and should not be used in modern applications.
+
+True Positive - Rule13/HasVuln/testfile231.py:
+YES, there is cryptographic API misuse because the code uses `ssl.wrap_socket()` with the deprecated `ssl.PROTOCOL_SSLv2`, which is known to have serious vulnerabilities and should not be used for secure communication.
+
+True Positive - Rule13/HasVuln/testfile239.py:
+YES, there is cryptographic API misuse, as the code uses `ssl.wrap_socket` with an outdated and insecure SSL/TLS version (SSLv2), which is known to be vulnerable to various attacks and should not be used in secure communications.
+
+True Positive - Rule13/HasVuln/testfile241.py:
+YES, there is cryptographic API misuse because the code uses `ssl.wrap_socket()` with SSLv2, which is considered insecure and deprecated due to known vulnerabilities, and it does not properly handle the socket or provide necessary security configurations.
+
+True Positive - Rule14/HasVuln/testfile191.py:
+YES, there is cryptographic API misuse because the code uses an empty username and password for LDAP binding, which exposes the connection to potential unauthorized access and does not implement any secure authentication or encryption mechanisms.
+
+True Positive - Rule14/HasVuln/testfile198.py:
+YES, there is cryptographic API misuse because the code uses an empty string for the username and password in the `simple_bind_s` method, which exposes the LDAP connection to unauthorized access and potential man-in-the-middle attacks, as it lacks proper authentication credentials and secure communication practices.
+
+True Positive - Rule14/HasVuln/testfile235.py:
+YES, there is cryptographic API misuse because the code uses an empty username and password for the `simple_bind_s` method, which exposes the LDAP server to unauthorized access and potential attacks, as it does not properly authenticate users.
+
+True Positive - Rule14/HasVuln/testfile237.py:
+YES, there is cryptographic API misuse because the code uses an empty username and password for the LDAP bind operation, which can lead to unauthorized access and potential exposure of sensitive data, as it does not implement any form of authentication or secure handling of credentials.
+
+False Negative - Rule15/HasVuln/testfile207.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not involve any cryptographic operations or libraries, but rather focuses on XML parsing.
+
+False Negative - Rule15/HasVuln/testfile222.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not involve any cryptographic operations or libraries; it simply uses an XML parser without any security implications.
+
+False Negative - Rule15/HasVuln/testfile246.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not involve any cryptographic operations or libraries; it only utilizes the XML parsing functionality from the `xml.sax` module.
+
+False Negative - Rule15/HasVuln/testfile261.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not involve any cryptographic operations or libraries.
+
+False Negative - Rule16/HasVuln/testfile192.py:
+NO, there is no cryptographic API misuse detected in the provided code snippet as it does not utilize any cryptographic functions or libraries, and instead focuses on YAML serialization and deserialization.
+
+False Negative - Rule16/HasVuln/testfile199.py:
+NO, there is no cryptographic API misuse detected in the provided code snippet as it does not utilize any cryptographic operations or libraries, focusing instead on YAML serialization and deserialization.
+
+False Negative - Rule16/HasVuln/testfile234.py:
+NO, there is no cryptographic API misuse detected in the provided code snippet, as it does not involve any cryptographic operations or libraries but rather focuses on YAML serialization and deserialization.
+
+False Negative - Rule16/HasVuln/testfile244.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not utilize any cryptographic functions or libraries that could lead to vulnerabilities.
+
+True Positive - Rule17/HasVuln/testfile209.py:
+YES, there is cryptographic API misuse because the code uses Python's `pickle` module for serialization, which is inherently insecure and allows for arbitrary code execution during deserialization, making it vulnerable to attacks such as remote code execution.
+
+True Positive - Rule17/HasVuln/testfile224.py:
+YES, there is cryptographic API misuse. The use of `pickle` for serialization in this code is inherently unsafe, as it allows for arbitrary code execution when unpickling, making the application vulnerable to remote code execution attacks.
+
+True Positive - Rule17/HasVuln/testfile252.py:
+YES, there is cryptographic API misuse in this code snippet because it uses the `pickle` module to serialize and deserialize an object without any security measures, making it vulnerable to arbitrary code execution through deserialization attacks.
+
+True Positive - Rule17/HasVuln/testfile258.py:
+YES, there is cryptographic API misuse because the code uses Python's `pickle` module, which is inherently insecure for deserialization as it can execute arbitrary code during the loading process, making it vulnerable to code injection attacks.
+
+False Negative - Rule18/HasVuln/testfile215.py:
+NO, there is no cryptographic API misuse detected in the provided code snippet, as it simply uses a regular expression search function without involving any cryptographic operations or libraries.
+
+False Negative - Rule18/HasVuln/testfile219.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not involve any cryptographic operations or libraries.
+
+False Negative - Rule18/HasVuln/testfile245.py:
+NO, there is no cryptographic API misuse detected in this code snippet as it does not involve any cryptographic operations or libraries.
+
+False Negative - Rule18/HasVuln/testfile260.py:
+NO, there is no cryptographic API misuse detected in the provided code snippet as it does not utilize any cryptographic libraries or functions; instead, it uses regular expressions for string searching, which is unrelated to cryptography.
+
