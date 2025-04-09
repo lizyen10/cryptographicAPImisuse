@@ -21,6 +21,18 @@ False Negatives: 21
 True Negatives: 185
 False Positives: 1
 
+Average Prompt 1
+=== Evaluation Summary ===
+True Positives: 50
+False Negatives: 22
+True Negatives: 185
+False Positives: 1
+
+Precision
+Recall
+F score
+
+
 ------------------------------
 Engineered prompt with attacks
 
@@ -44,6 +56,14 @@ True Positives: 56
 False Negatives: 16
 True Negatives: 186
 False Positives: 0
+
+Average Prompt 2
+=== Evaluation Summary ===
+True Positives: 56
+False Negatives: 16
+True Negatives: 186
+False Positives: 0
+
 
 -----------------
 Engineered prompt with attacks and misuse rules
@@ -69,5 +89,16 @@ False Negatives: 8
 True Negatives: 185
 False Positives: 1
 
+Average Prompt 3
+=== Evaluation Summary ===
+True Positives: 64
+False Negatives: 8
+True Negatives: 185
+False Positives: 1
+
+
+--------------------
+- focused on detection of crypto api misuse, so also for costs, limited the response to a sentence of reasoning, if allowed for more, could have instructed to offer solutions 
+- in testing beyond this api calls, llm would offer solutions 
 
 
