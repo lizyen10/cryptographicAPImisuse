@@ -48,6 +48,8 @@ Since LLMs have variable responses to the same prompt, to account for this varia
     - file to calculate recall, precision, F score, and F2 score
 - api_results.md
     - Holds the evaluation results for the LLM after each test, and the averaged results I used for calculations
+- test_files/
+    - The PyCryptoBench test files (filtered by script in test.py). Divided into subdirectories Rule 0 through 18, each with folders HasVuln (has vulnerability) and NoVuln (does not have vulnerability). 
 
 ## Running this repo
 - To run testing with Semgrep, download the VS code extension of Semgrep from semgrep.dev. After intstallation, click the Semgrep extension icon and click, Semgrep: scan all files in workspace. 
