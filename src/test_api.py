@@ -1,10 +1,6 @@
 import os
 
-# parses through and reads each file
-# ai analyzes each file, begins response with YES (meaning there is cryptographic API misuse) or NO (no cryptographic API misuse detected)
-# i want to keep track of the hasVuln (files that have vulnerabilities) and noVuln (files with no vulnerabilities) directories and the YES and NO responses, and count true positives, false positives, true negatives, false negatives. 
-# then direct only the false positives or false negatives responses to a file (api_output.txt) to write to and write the rule directory, the subdirectory (hasVuln or noVuln) and test file name before the response, and label it a false positive or negative
-
+# test file for api.py, checks parsing and evaluation of files is correct 
 
 base_path = './test_files'
 output_file = 'api_output.txt'
@@ -21,7 +17,7 @@ with open(output_file, 'w') as out_file:
                 if filename.endswith('.py'):
                     file_path = os.path.join(dir_path, filename)
                     with open(file_path, 'r') as file:
-                        #get rid of comments, dont want ai getting the metadata, only the code
+                        # get rid of comments, dont want ai getting the metadata, only the code
                         lines = file.readlines()
                         code_lines = [
                             line for line in lines
@@ -33,11 +29,7 @@ with open(output_file, 'w') as out_file:
                         #response = analyze_code_snippet(code_snippet).strip()
                         response = "NO"
 
-                        #for testing only
-                        #print(f'Analyzing {file_path}')
-                        #print(code_snippet)
-
-                        # Check actual (ground truth) and predicted (response)
+                        # Check actual and predicted 
                         has_vuln = (vuln_status == 'HasVuln')
                         no_vuln = (vuln_status == 'NoVuln')
 

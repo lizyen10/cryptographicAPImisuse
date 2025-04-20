@@ -7,19 +7,20 @@ import hashlib
 base_output_dir = "./test_files"
 
 # Create Rule0 to Rule18 subdirectories with HasVuln and NoVuln
+# Rule0 files will not be used in testing.
 for rule_number in range(0, 19):
     for vuln_label in ["HasVuln", "NoVuln"]:
         dir_path = os.path.join(base_output_dir, f"Rule{rule_number}", vuln_label)
         os.makedirs(dir_path, exist_ok=True)
 
-# Path to your PyCryptoBench SQLite database file
+# Path to PyCryptoBench SQLite database file in my repo
 db_path = "./data/PyCryptoBench.sqlite"
 
 # Connect to the SQLite database
 conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
-# Fetch all test files from the database (adjust table name if needed)
+# Fetch all test files from the database
 cursor.execute("SELECT * FROM main;")
 columns = [desc[0] for desc in cursor.description]
 rows = cursor.fetchall()
@@ -28,7 +29,7 @@ print("Columns:", columns)
 
 file_count = 0
 
-# 🔹 Track seen content hashes and counts for each Rule's NoVuln folder
+# Track already viewed content hashes and counts for each Rule's NoVuln folder
 no_vuln_hashes_by_rule = {rule: {} for rule in range(0, 19)}
 
 # Iterate through each row
@@ -42,13 +43,13 @@ for row in rows:
         has_vuln = testfile.get('HasVuln')
 
         if rule_number is None or has_vuln is None:
-            continue  # Skip if required fields are missing
+            continue 
 
         vuln_folder = "HasVuln" if has_vuln == 1 else "NoVuln"
         rule_dir = os.path.join(base_output_dir, f"Rule{rule_number}", vuln_folder)
         os.makedirs(rule_dir, exist_ok=True)
 
-        # 🔹 Handle duplicates in NoVuln: allow up to 2 of each unique hash
+        # The handling of duplicates in NoVuln: allow up to 2 of each unique hash
         if has_vuln == 0:
             content_hash = hashlib.sha256(testcontent.encode('utf-8')).hexdigest()
             hash_count = no_vuln_hashes_by_rule[rule_number].get(content_hash, 0)
@@ -61,7 +62,7 @@ for row in rows:
         filename = f"testfile{file_count + 1}.py"
         file_path = os.path.join(rule_dir, filename)
 
-        # Create metadata comments
+        # Create metadata comments for own use
         metadata_comments = "# Test Case Metadata\n"
         for col_name, value in testfile.items():
             if col_name != 'Contents':
@@ -75,5 +76,4 @@ for row in rows:
 
 print(f"Total files saved: {file_count}")
 
-# Close database connection
 conn.close()

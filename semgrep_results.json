@@ -1,1 +1,0 @@
-{"version":"1.116.0","results":[],"errors":[{"code":2,"level":"error","type":"SemgrepError","message":"Invalid scanning root: test_files"}],"paths":{"scanned":[]},"skipped_rules":[]}

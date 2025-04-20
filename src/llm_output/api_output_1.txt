@@ -55,8 +55,8 @@ NO, there is no cryptographic API misuse detected in this code snippet as it doe
 False Negative - Rule4/HasVuln/testfile257.py:
 NO, there is no cryptographic API misuse detected in this code snippet because it does not utilize any cryptographic APIs; instead, it simply makes an HTTP request to retrieve and print the content from a URL.
 
-- does not classify http instead of https as crypto api misuse - detects the http, but does not classify it as an issue, since we dont handle anything sensitive?
-- maybe something to consider, doesnt just look at the bare bones code, but the context of the situation - good for industry?
+- does not classify http instead of https as crypto api misuse - detects the http, but does not classify it as an issue, since we dont handle anything sensitive
+- maybe something to consider, doesnt just look at the bare bones code, but the context of the situation
 
 
 False Negative - Rule5/HasVuln/testfile232.py:
@@ -133,13 +133,7 @@ YES, there is cryptographic API misuse, because the code incorrectly uses the sa
 False Negative - Rule9/HasVuln/testfile226.py:
 NO. The code snippet correctly uses the AES encryption algorithm in CFB mode with a randomly generated initialization vector (IV), which is appropriate for secure encryption practices.
 
-- FN doesnt detect hard coded key
-- 211's reasoning is incorrect? you should use same iv for encrypt and decrypt or else you cant decrypt it correctly. for different messages, yes use different iv, but not for encrypt and decrypt of same message 
-- maybe bc its a function that can be reused 
-- 211 doesnt see hardcoded key
-- 187 is fine i think, also doesnt see hardcoded key
-- only 204 detects hardocded key
-- overall, LLM struggled with rule 9
+- LLM struggled with rule 9
 
 
 False Positive - Rule9/NoVuln/testfile36.py:

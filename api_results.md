@@ -1,4 +1,4 @@
-Non-engineered prompt
+Prompt 1: Non-engineered prompt
 
 Run 1 - api_output_1.txt
 === Evaluation Summary ===
@@ -28,13 +28,8 @@ False Negatives: 22
 True Negatives: 185
 False Positives: 1
 
-Precision
-Recall
-F score
-
-
 ------------------------------
-Engineered prompt with attacks
+Prompt 2: Engineered prompt with attacks
 
 Run 1 - api_output_4.txt
 === Evaluation Summary ===
@@ -66,7 +61,7 @@ False Positives: 0
 
 
 -----------------
-Engineered prompt with attacks and misuse rules
+Prompt 3: Engineered prompt with attacks and misuse rules
 
 Run 1 - api_output_7.txt
 === Evaluation Summary ===
@@ -95,10 +90,3 @@ True Positives: 64
 False Negatives: 8
 True Negatives: 185
 False Positives: 1
-
-
---------------------
-- focused on detection of crypto api misuse, so also for costs, limited the response to a sentence of reasoning, if allowed for more, could have instructed to offer solutions 
-- in testing beyond this api calls, llm would offer solutions 
-
-
